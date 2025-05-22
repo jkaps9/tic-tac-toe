@@ -44,3 +44,8 @@ const Gameboard = (function () {
 })();
 
 Gameboard.printBoard();
+
+function createPlayer(name, marker) {
+    return { name, marker };
+}
+
