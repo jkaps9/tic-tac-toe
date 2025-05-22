@@ -14,11 +14,10 @@ body {
 
 body>* {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1100px;
 }
 
-header,
-footer {
+header {
     flex: 0;
     height: 72px;
     padding: 15px;
@@ -33,4 +32,36 @@ main {
 section {
     padding: 15px;
     flex: 1;
+}
+
+.players {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.players p {
+    padding: 4px;
+    background-color: darkblue;
+    color: white;
+}
+
+.game-grid {
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1px;
+
+    width: 350px;
+    height: 350px;
+    background-color: black;
+}
+
+.game-grid button {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background-color: white;
 }
