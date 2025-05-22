@@ -1,6 +1,6 @@
 # TIC-TAC-TOE
 ## Summary
-This is a Tic-Tac-Toe game created to practice Factory Functions adn the Module Pattern. 
+This is a Tic-Tac-Toe game created to practice Factory Functions and the Module Pattern. 
 
 ## Game Rules
 * Tic-tac-toe is played on a three-by-three grid by two players, who alternately place the marks X and O in one of the nine spaces in the grid.<sup>1</sup>
