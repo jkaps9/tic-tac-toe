@@ -157,6 +157,7 @@ const DisplayController = (function () {
     newGameButton.addEventListener('click', () => {
         Game.newGame();
         updateSquares();
+        styleActivePlayer();
     });
 
     const playerOne = document.querySelector("#playerOne");
