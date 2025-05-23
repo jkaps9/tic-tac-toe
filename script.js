@@ -107,6 +107,20 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
                 return true;
             }
         }
+
+        //check diagonals
+        if (boardCheck[0][0] === boardCheck[1][1] &&
+            boardCheck[1][1] === boardCheck[2][2] &&
+            boardCheck[0][0] === activePlayer.marker) {
+            return true;
+        }
+
+        if (boardCheck[0][2] === boardCheck[1][1] &&
+            boardCheck[1][1] === boardCheck[2][0] &&
+            boardCheck[0][2] === activePlayer.marker) {
+            return true;
+        }
+
         return false;
     };
 
