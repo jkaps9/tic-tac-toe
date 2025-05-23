@@ -7,7 +7,7 @@
 // Need two players object
 // Each player will have a name and a marker
 
-// Need display controller? 
+// Need display controller
 
 const Gameboard = (function () {
     const rows = 3;
@@ -17,7 +17,7 @@ const Gameboard = (function () {
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for (let j = 0; j < columns; j++) {
-            board[i][j] = '*';
+            board[i][j] = '';
         }
     }
 
@@ -79,5 +79,25 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
 })();
 
 const DisplayController = (function () {
+    const gameSquares = document.querySelectorAll(".game-grid>button");
 
+    const updateSquares = () => {
+        const board = Gameboard.getBoard();
+        let squareIndex = 0;
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                gameSquares[squareIndex].textContent = `${board[i][j]}`;
+                squareIndex++;
+            }
+        }
+    };
+
+    gameSquares.forEach(function (square) {
+        square.addEventListener('click', () => {
+            if (square.textContent === "") {
+                Game.playRound(square.getAttribute("data-row"), square.getAttribute("data-column"));
+                updateSquares();
+            }
+        });
+    });
 })();
