@@ -14,12 +14,14 @@ const Gameboard = (function () {
     const columns = 3;
     const board = new Array(rows);
 
-    for (let i = 0; i < rows; i++) {
-        board[i] = [];
-        for (let j = 0; j < columns; j++) {
-            board[i][j] = '';
+    const resetBoard = () => {
+        for (let i = 0; i < rows; i++) {
+            board[i] = [];
+            for (let j = 0; j < columns; j++) {
+                board[i][j] = '';
+            }
         }
-    }
+    };
 
     const getBoard = () => board;
 
@@ -40,7 +42,9 @@ const Gameboard = (function () {
         console.log(boardWithValues);
     };
 
-    return { getBoard, addMarker, printBoard };
+    resetBoard();
+
+    return { getBoard, addMarker, printBoard, resetBoard };
 })();
 
 function createPlayer(name, marker) {
@@ -73,9 +77,14 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
         printNewRound();
     };
 
+    const newGame = () => {
+        board.resetBoard();
+        activePlayer = players[0];
+    };
+
     printNewRound();
 
-    return { playRound, getActivePlayer };
+    return { playRound, getActivePlayer, newGame };
 })();
 
 const DisplayController = (function () {
@@ -100,4 +109,11 @@ const DisplayController = (function () {
             }
         });
     });
+
+    const newGameButton = document.querySelector("#new-game");
+    newGameButton.addEventListener('click', () => {
+        Game.newGame();
+        updateSquares();
+    });
+
 })();
