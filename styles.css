@@ -43,6 +43,7 @@ section {
     justify-content: center;
     align-items: center;
     gap: 25px;
+    position: relative;
 }
 
 
@@ -93,4 +94,23 @@ p.active {
 
 #new-game:hover {
     background-color: rgb(65, 64, 64);
+}
+
+#winner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#winner>p {
+    padding: 25px 50px;
+    background-color: rgba(221, 220, 220, 0.9);
+    border: 1px solid rgba(221, 50, 55, 0.4);
+    color: rgba(221, 50, 55, 1);
+    border-radius: 10px;
+    font-size: 1.8rem;
 }

@@ -73,7 +73,7 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
     const playRound = (row, column) => {
         board.addMarker(row, column, getActivePlayer().marker);
         if (isWinner()) {
-            alert(`${activePlayer.name} won!`);
+            DisplayController.displayWinner(activePlayer);
         } else {
             switchPlayer();
             printNewRound();
@@ -158,6 +158,8 @@ const DisplayController = (function () {
         Game.newGame();
         updateSquares();
         styleActivePlayer();
+        const winner = document.querySelector("#winner");
+        winner.classList.add("hidden");
     });
 
     const playerOne = document.querySelector("#playerOne");
@@ -185,5 +187,14 @@ const DisplayController = (function () {
     };
 
     styleActivePlayer();
+
+    const displayWinner = (player) => {
+        const winner = document.querySelector("#winner");
+        winner.classList.remove("hidden");
+        const winnerText = winner.querySelector("p");
+        winnerText.textContent = `${player.name} wins!`
+    };
+
+    return { displayWinner };
 
 })();
