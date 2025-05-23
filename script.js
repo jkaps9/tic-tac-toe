@@ -43,13 +43,11 @@ const Gameboard = (function () {
     return { getBoard, addMarker, printBoard };
 })();
 
-Gameboard.printBoard();
-
 function createPlayer(name, marker) {
     return { name, marker };
 }
 
-function Game(playerOneName = "Player One", playerTwoName = "Player Two") {
+const Game = (function (playerOneName = "Player One", playerTwoName = "Player Two") {
     const board = Gameboard;
     const playerOne = createPlayer(playerOneName, "X");
     const playerTwo = createPlayer(playerTwoName, "O");
@@ -78,6 +76,8 @@ function Game(playerOneName = "Player One", playerTwoName = "Player Two") {
     printNewRound();
 
     return { playRound, getActivePlayer };
-}
+})();
 
-const game = Game();
+const DisplayController = (function () {
+
+})();
