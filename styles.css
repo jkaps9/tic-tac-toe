@@ -38,18 +38,22 @@ section {
 }
 
 .container {
-    width: 350px;
+    width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 25px;
 }
 
-/* .players p {
-    padding: 4px;
-    background-color: darkblue;
-    color: white;
-} */
+
+.container p {
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+p.active {
+    border: 1px solid rgba(221, 50, 55, 1);
+}
 
 .game-grid {
     margin: 30px 0;

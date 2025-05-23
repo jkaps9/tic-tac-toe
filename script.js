@@ -148,6 +148,7 @@ const DisplayController = (function () {
             if (square.textContent === "") {
                 Game.playRound(square.getAttribute("data-row"), square.getAttribute("data-column"));
                 updateSquares();
+                styleActivePlayer();
             }
         });
     });
@@ -170,5 +171,18 @@ const DisplayController = (function () {
     }
 
     updatePlayerValues();
+
+    const styleActivePlayer = () => {
+        let activePlayer = Game.getActivePlayer();
+        if (activePlayer.marker === "X") {
+            playerOne.classList.add("active");
+            playerTwo.classList.remove("active");
+        } else {
+            playerTwo.classList.add("active");
+            playerOne.classList.remove("active");
+        }
+    };
+
+    styleActivePlayer();
 
 })();
