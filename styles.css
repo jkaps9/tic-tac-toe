@@ -11,8 +11,11 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    background-color: rgb(43, 43, 43);
-    color: rgb(221, 220, 220);
+    --dark-color: 43, 43, 43;
+    --light-color: 220, 220, 220;
+    --hover-color: 65, 65, 65;
+    background-color: rgb(var(--dark-color));
+    color: rgb(var(--light-color));
 }
 
 body>* {
@@ -49,7 +52,7 @@ section {
 
 .container p {
     padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(var(--dark-color), 0);
 }
 
 p.active {
@@ -65,35 +68,35 @@ p.active {
 
     width: 350px;
     height: 350px;
-    background-color: rgb(221, 220, 220);
+    background-color: rgb(var(--light-color));
 }
 
 .game-grid button {
     cursor: pointer;
     appearance: none;
     border: none;
-    background-color: rgb(43, 43, 43);
-    color: rgb(221, 220, 220);
+    background-color: rgb(var(--dark-color));
+    color: rgb(var(--light-color));
     font-size: 4rem;
 }
 
 .game-grid button:hover {
-    background-color: rgb(65, 64, 64);
+    background-color: rgb(var(--hover-color));
 }
 
 #new-game {
     cursor: pointer;
     appearance: none;
     background: none;
-    border: 1px solid rgb(221, 220, 220);
+    border: 1px solid rgb(var(--light-color));
     border-radius: 5px;
-    color: rgb(221, 220, 220);
+    color: rgb(var(--light-color));
     padding: 10px 20px;
     margin: 10px 0;
 }
 
 #new-game:hover {
-    background-color: rgb(65, 64, 64);
+    background-color: rgb(var(--hover-color));
 }
 
 #winner {
@@ -108,7 +111,7 @@ p.active {
 
 #winner>p {
     padding: 25px 50px;
-    background-color: rgba(221, 220, 220, 0.9);
+    background-color: rgba(var(--light-color), 0.9);
     border: 1px solid rgba(221, 50, 55, 0.4);
     color: rgba(221, 50, 55, 1);
     border-radius: 10px;
