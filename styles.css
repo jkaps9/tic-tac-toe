@@ -10,6 +10,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+
+    background-color: rgb(43, 43, 43);
+    color: rgb(221, 220, 220);
 }
 
 body>* {
@@ -34,10 +37,11 @@ section {
     flex: 1;
 }
 
-.players {
+.container {
     width: 350px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25px;
 }
 
@@ -56,12 +60,25 @@ section {
 
     width: 350px;
     height: 350px;
-    background-color: black;
+    background-color: rgb(221, 220, 220);
 }
 
 .game-grid button {
     cursor: pointer;
     appearance: none;
     border: none;
-    background-color: white;
+    background-color: rgb(43, 43, 43);
+    color: rgb(221, 220, 220);
+    font-size: 4rem;
+}
+
+#new-game {
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    border: 1px solid rgb(221, 220, 220);
+    border-radius: 5px;
+    color: rgb(221, 220, 220);
+    padding: 10px 20px;
+    margin: 10px 0;
 }
