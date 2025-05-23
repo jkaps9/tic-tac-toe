@@ -72,6 +72,10 @@ section {
     font-size: 4rem;
 }
 
+.game-grid button:hover {
+    background-color: rgb(65, 64, 64);
+}
+
 #new-game {
     cursor: pointer;
     appearance: none;
