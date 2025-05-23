@@ -82,3 +82,7 @@ section {
     padding: 10px 20px;
     margin: 10px 0;
 }
+
+#new-game:hover {
+    background-color: rgb(65, 64, 64);
+}
