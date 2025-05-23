@@ -72,9 +72,12 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
 
     const playRound = (row, column) => {
         board.addMarker(row, column, getActivePlayer().marker);
-        //Check for winner
-        switchPlayer();
-        printNewRound();
+        if (isWinner()) {
+            alert(`${activePlayer.name} won!`);
+        } else {
+            switchPlayer();
+            printNewRound();
+        }
     };
 
     const newGame = () => {
@@ -82,9 +85,34 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
         activePlayer = players[0];
     };
 
+    const getPlayer = (index) => {
+        if (index < players.length) {
+            return players[index];
+        }
+    };
+
+    const isWinner = () => {
+        let boardCheck = board.getBoard();
+        for (let i = 0; i < 3; i++) {
+            //check rows
+            if (boardCheck[i][0] === boardCheck[i][1] &&
+                boardCheck[i][1] === boardCheck[i][2] &&
+                boardCheck[i][0] === activePlayer.marker) {
+                return true;
+            }
+            //check cols
+            if (boardCheck[0][i] === boardCheck[1][i] &&
+                boardCheck[1][i] === boardCheck[2][i] &&
+                boardCheck[0][i] === activePlayer.marker) {
+                return true;
+            }
+        }
+        return false;
+    };
+
     printNewRound();
 
-    return { playRound, getActivePlayer, newGame };
+    return { playRound, getActivePlayer, newGame, getPlayer };
 })();
 
 const DisplayController = (function () {
@@ -93,8 +121,8 @@ const DisplayController = (function () {
     const updateSquares = () => {
         const board = Gameboard.getBoard();
         let squareIndex = 0;
-        for (i = 0; i < 3; i++) {
-            for (j = 0; j < 3; j++) {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 gameSquares[squareIndex].textContent = `${board[i][j]}`;
                 squareIndex++;
             }
@@ -115,5 +143,18 @@ const DisplayController = (function () {
         Game.newGame();
         updateSquares();
     });
+
+    const playerOne = document.querySelector("#playerOne");
+    const playerTwo = document.querySelector("#playerTwo");
+
+    const updatePlayerValues = () => {
+        let p1 = Game.getPlayer(0);
+        playerOne.textContent = `${p1.marker}: ${p1.name}`;
+
+        let p2 = Game.getPlayer(1);
+        playerTwo.textContent = `${p2.marker}: ${p2.name}`;
+    }
+
+    updatePlayerValues();
 
 })();

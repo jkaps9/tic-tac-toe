@@ -41,11 +41,11 @@ section {
     gap: 25px;
 }
 
-.players p {
+/* .players p {
     padding: 4px;
     background-color: darkblue;
     color: white;
-}
+} */
 
 .game-grid {
     margin: 30px 0;
