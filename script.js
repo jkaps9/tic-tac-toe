@@ -61,7 +61,7 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
 
     const switchPlayer = () => {
         activePlayer = activePlayer === players[0] ? players[1] : players[0];
-    }
+    };
 
     const getActivePlayer = () => activePlayer;
 
@@ -126,7 +126,7 @@ const Game = (function (playerOneName = "Player One", playerTwoName = "Player Tw
 
     printNewRound();
 
-    return { playRound, getActivePlayer, newGame, getPlayer };
+    return { playRound, getActivePlayer, newGame, getPlayer, playerOne, playerTwo };
 })();
 
 const DisplayController = (function () {
@@ -194,6 +194,26 @@ const DisplayController = (function () {
         const winnerText = winner.querySelector("p");
         winnerText.textContent = `${player.name} wins!`
     };
+
+    playerOne.addEventListener('dblclick', () => {
+        let newName = prompt("Enter new name", Game.playerOne.name);
+        if (newName != null) {
+            Game.playerOne.name = newName;
+            updatePlayerValues();
+            const hint = document.querySelector("#hint");
+            hint.classList.add("hidden");
+        }
+    });
+
+    playerTwo.addEventListener('dblclick', () => {
+        let newName = prompt("Enter new name", Game.playerTwo.name);
+        if (newName != null) {
+            Game.playerTwo.name = newName;
+            updatePlayerValues();
+            const hint = document.querySelector("#hint");
+            hint.classList.add("hidden");
+        }
+    });
 
     return { displayWinner };
 
